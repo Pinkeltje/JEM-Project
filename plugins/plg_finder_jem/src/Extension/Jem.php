@@ -5,15 +5,24 @@
  * @copyright  (C) 2013-2024 joomlaeventmanager.net
  * @license    https://www.gnu.org/licenses/gpl-3.0 GNU/GPL
  */
+ 
+namespace Joomla\Plugin\Finder\Jem\Extension;
 
 defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
-
-jimport('joomla.application.component.helper');
-
-// Load the base adapter.
-require_once JPATH_ADMINISTRATOR . '/components/com_finder/helpers/indexer/adapter.php';
+use Joomla\CMS\Component\ComponentHelper;
+use Joomla\Component\Finder\Administrator\Indexer\Adapter;
+use Joomla\Component\Finder\Administrator\Indexer\Helper;
+use Joomla\Component\Finder\Administrator\Indexer\Result;
+use Joomla\Component\Finder\Administrator\Indexer\Indexer;
+use Joomla\Registry\Registry;
+use Joomla\CMS\Table\Table;
+use Joomla\CMS\Plugin\CMSPlugin;
+use Joomla\Event\DispatcherInterface;
+use Joomla\Component\Jem\Site\Helper\RouteHelper;
+use Joomla\Database\DatabaseAwareTrait;
+use Joomla\Database\DatabaseQuery;
 
 /**
  * Finder adapter for com_jem.
@@ -22,15 +31,10 @@ require_once JPATH_ADMINISTRATOR . '/components/com_finder/helpers/indexer/adapt
  * @subpackage Finder.jem
  *
  */
-
-use Joomla\CMS\Component\ComponentHelper;
-use Joomla\Component\Finder\Administrator\Indexer\Adapter;
-use Joomla\Component\Finder\Administrator\Indexer\Helper;
-use Joomla\Component\Finder\Administrator\Indexer\Result;
-use Joomla\Registry\Registry;
-
-class plgFinderJEM extends Adapter
+final class Jem extends Adapter
 {
+    use DatabaseAwareTrait;
+
     /**
      * The plugin identifier.
      *
@@ -72,7 +76,15 @@ class plgFinderJEM extends Adapter
     protected $table = '#__jem_events';
 
     /**
-     * The state field.
+     * Load the language file on instantiation.
+     *
+     * @var    boolean
+     * @since  3.1
+     */
+    protected $autoloadLanguage = true;
+
+    /**
+     * The field the published state is stored in.
      *
      * @var    string
      *
