@@ -41,7 +41,7 @@ final class Jem extends Adapter
      * @var    string
      *
      */
-    protected $context = 'JEM';
+    protected $context = 'Jem';
 
     /**
      * The extension name.
