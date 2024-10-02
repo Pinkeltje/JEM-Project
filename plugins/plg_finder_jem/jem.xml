@@ -1,29 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension version="2.5" type="plugin" group="finder" method="upgrade">
+<extension type="plugin" group="finder" method="upgrade">
     <name>plg_finder_jem</name>
-    <creationDate>April 2024</creationDate>
     <author>JEM Community</author>
+    <creationDate>April 2024</creationDate>
+    <copyright>Copyright (C) 2013-2024 joomlaeventmanager.net</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
     <authorEmail>info@joomlaeventmanager.net</authorEmail>
-    <authorUrl>https://www.joomlaeventmanager.net</authorUrl>
-    <copyright>copyright (C) 2013-2024 joomlaeventmanager.net</copyright>
-    <license>https://www.gnu.org/licenses/gpl-3.0 GNU/GPL</license>
-    <version>4.3.0.rc4</version>    
-    <namespace path="src">Joomla\Plugin\Finder\Jem</namespace>
+    <authorUrl>www.joomlaeventmanager.net</authorUrl>
+    <version>4.3.0.rc4</version>
     <description>PLG_FINDER_JEM_XML_DESCRIPTION</description>
-
-    <!-- <scriptfile>script.php</scriptfile> -->
+    <namespace path="src">Joomla\Plugin\Finder\Jem</namespace>
     <files>
         <folder>services</folder>
         <folder>src</folder>
         <folder>language</folder>
     </files>
-
-    <!-- Do not remove the language tag, because the language file is needed
-         in the administrator/language folder. The language file will only be
-         loaded from this location when accessing the finder component at the
-         frontend. This is a limitation in J2.5 -->
-    <languages>
-        <language tag="en-GB">language/en-GB/plg_finder_jem.ini</language>
-        <language tag="en-GB">language/en-GB/plg_finder_jem.sys.ini</language>
+    <languages folder="language">
+        <language tag="en-GB">en-GB/plg_finder_jem.ini</language>
+        <language tag="en-GB">en-GB/plg_finder_jem.sys.ini</language>
     </languages>
+    <config>
+        <fields name="params">
+        </fields>
+    </config>
 </extension>
