@@ -38,7 +38,7 @@ if ($params->get('use_modal', 0)) {
             <table>
                 <tr>
                     <td class="event-calendar">
-                       <!--  ################ START CARENDAR SHEET ################ -->
+
         				<?php if ($showcalendar == 1) :?>
 							<?php if ($item->colorclass === "category" || $item->colorclass === "alpha"): ?>
 								<div class="calendar<?php echo '-' . $item->colorclass; ?> jem-teaser-calendar" title="<?php echo strip_tags($item->dateinfo); ?>">
@@ -64,10 +64,7 @@ if ($params->get('use_modal', 0)) {
               <?php echo $item->startdate['day']; ?>
             </div>
           </div>
-        <?php endif; ?>
-        
-  <!-- ################ END CARENDAR SHEET ################ -->
-                        
+        <?php endif; ?>                        
                     </td>
                     <td class="event-info">
                         <div class="teaser-jem">
@@ -93,12 +90,6 @@ if ($params->get('use_modal', 0)) {
                 if (isset($item->link) && $item->readmore != 0 && $params->get('readmore')) :
                   echo '<a class="readmore" style="padding-left: 10px;" href="'.$item->link.'">'.$item->linkText.'</a>';
                 endif;
-
-                if ($item->eventlink) : ?>
-                    <a href="<?php echo $item->eventlink ?>" title="<?php echo Text::_('COM_JEM_EVENT_READ_MORE_TITLE'); ?>">
-                      <?php echo Text::_('COM_JEM_EVENT_READ_MORE_TITLE'); ?>
-                    </a>
-                <?php endif;
               endif; ?>
             </div>
                         </div>

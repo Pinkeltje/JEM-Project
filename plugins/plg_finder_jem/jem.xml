@@ -6,8 +6,10 @@
     <copyright>Copyright (C) 2013-2024 joomlaeventmanager.net</copyright>
     <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
     <authorEmail>info@joomlaeventmanager.net</authorEmail>
-    <authorUrl>www.joomlaeventmanager.net</authorUrl>
-    <version>4.3.0.rc4</version>
+    <authorUrl>https://www.joomlaeventmanager.net</authorUrl>
+    <copyright>copyright (C) 2013-2024 joomlaeventmanager.net</copyright>
+    <license>https://www.gnu.org/licenses/gpl-3.0 GNU/GPL</license>
+    <version>4.3.0.rc6</version>
     <description>PLG_FINDER_JEM_XML_DESCRIPTION</description>
     <namespace path="src">Joomla\Plugin\Finder\Jem</namespace>
     <files>

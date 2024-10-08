@@ -54,17 +54,14 @@ if ($params->get('use_modal', 0)) {
  }
  ?>
 
-  #jemmoduleteaser .jem-eventimg-teaser {
-    width: <?php echo $imagewidth; ?>;
-  }
-  
-  #jemmoduleteaser .jem-eventimg-teaser img {
-    width: <?php echo $imagewidth; ?>;
-    height: <?php echo $imageheight; ?>;
-  }
-  
-  @media not print {
-    @media only all and (max-width: 47.938rem) {  
+    #jemmoduleteaser .jem-eventimg-teaser img {
+        width: 100%;
+        height: <?php echo $imageheight; ?>;
+    }
+
+    @media not print {
+        @media only all and (max-width: 47.938rem) {
+
       
       #jemmoduleteaser .jem-eventimg-teaser img {
         width: <?php echo $imagewidth; ?>;
@@ -97,14 +94,13 @@ if ($params->get('use_modal', 0)) {
       <?php echo $titleendtag; ?>
       
       <div class="jem-row-teaser jem-teaser-event">
-         <!--  ################ START CARENDAR SHEET ################ -->
+
 		<?php if ($item->colorclass === "category" || $item->colorclass === "alpha"): ?>
 			<div class="calendar<?php echo '-' . $item->colorclass; ?> jem-teaser-calendar" title="<?php echo strip_tags($item->dateinfo); ?>">
-               <?php $color = !empty($item->color) ? $item->color : 'rgb(128,128,128)'; ?>
-               <div class="color-bar" style="background-color:<?php echo $color; ?>"></div>
+               <div class="color-bar" style="background-color:<?php echo !empty($item->color) ? $item->color : 'rgb(128,128,128)'; ?>"></div>
             <div class="lower-background"></div>
                <div class="background-image"></div>
-        <?php else: ?>
+          	<?php else : ?>
     		<div class="calendar<?php echo '-' . $item->colorclass; ?> jem-teaser-calendar" title="<?php echo strip_tags($item->dateinfo); ?>"<?php if (!empty($item->color)): ?> style="background-color: <?php echo $item->color; ?>"<?php endif; ?>>
         <?php endif; ?>
     
@@ -117,16 +113,14 @@ if ($params->get('use_modal', 0)) {
                 : '">'))
         : '">';
     	echo $item->startdate['month']; ?>
-            </div>
-            <div class="dayteaser">
-              <?php echo $item->startdate['weekday']; ?>
-            </div>
-            <div class="daynumteaser">
-              <?php echo $item->startdate['day']; ?>
-            </div>
           </div>
-        
-  <!-- ################ END CARENDAR SHEET ################ -->        
+          <div class="dayteaser">
+            <?php echo empty($item->dayname) ? '<br/>' : $item->dayname; ?>
+          </div>
+          <div class="daynumteaser">
+            <?php echo empty($item->daynum) ? '?' : $item->daynum; ?>
+          </div>
+        </div>
         <div class="jem-event-details-teaser">
           <div class="jem-row-teaser jem-teaser-datecat">
             <?php if ($item->date && $params->get('datemethod', 1) == 2) :?>
@@ -224,19 +218,14 @@ if ($params->get('use_modal', 0)) {
 
             <?php if($item->showdescriptionevent): ?>
               <div class="jem-description-teaser">
-                <?php if($item->showdescriptionevent):
+                                            <?php
 					echo $item->eventdescription;
-                  if (isset($item->link) && $item->readmore != 0 && $params->get('readmore')) :
-                    echo '<a class="readmore" style="padding-left: 10px;" href="'.$item->link.'">'.$item->linkText.'</a>';
-                  endif;
-
-                  if ($item->eventlink) : ?>
+					if (isset($item->link) && $item->readmore != 0 && $params->get('readmore')) : ?>
                     <div class="jem-readmore">
                       <a href="<?php echo $item->eventlink ?>" title="<?php echo Text::_('COM_JEM_EVENT_READ_MORE_TITLE'); ?>">
                       <?php echo Text::_('COM_JEM_EVENT_READ_MORE_TITLE'); ?>
                     </a>
                     </div>
-                  <?php endif; ?>
                 <?php endif; ?>
               </div>
             <?php endif; ?> 
