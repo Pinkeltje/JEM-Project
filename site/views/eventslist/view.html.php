@@ -1,6 +1,5 @@
 <?php
 /**
- * @version    4.2.2
  * @package    JEM
  * @copyright  (C) 2013-2024 joomlaeventmanager.net
  * @copyright  (C) 2005-2009 Christoph Lukes
@@ -50,7 +49,6 @@ class JemViewEventslist extends JemView
 		$pathway     = $app->getPathWay();
 		$user        = JemFactory::getUser();
 		$itemid      = $jinput->getInt('id', 0) . ':' . $jinput->getInt('Itemid', 0);
-		$uri         = Uri::getInstance();
 
 		// Load css
 		JemHelper::loadCss('jem');
@@ -140,13 +138,13 @@ class JemViewEventslist extends JemView
 
 		if ($task == 'archive') {
 			$pathway->addItem(Text::_('COM_JEM_ARCHIVE'), Route::_('index.php?option=com_jem&view=eventslist&task=archive'));
-			$print_link = $uri->toString() . "&amp;task=archive&print=1";
+			$print_link = $uri->toString() . "?task=archive&print=1";
 			$pagetitle   .= ' - ' . Text::_('COM_JEM_ARCHIVE');
 			$pageheading .= ' - ' . Text::_('COM_JEM_ARCHIVE');
 			$archive_link = Route::_('index.php?option=com_jem&view=eventslist');
 			$params->set('page_heading', $pageheading);
 		} else {
-			$print_link = $uri->toString() . "&amp;print=1&amp;tmpl=component&amp;";
+			$print_link = $uri->toString() . "?tmpl=component&print=1";
 			$archive_link = $uri->toString();
 		}
 
@@ -192,7 +190,7 @@ class JemViewEventslist extends JemView
 		if ($jemsettings->showstate == 1) {
 			$filters[] = HTMLHelper::_('select.option', '5', Text::_('COM_JEM_STATE'));
 		}
-		$lists['filter'] = HTMLHelper::_('select.genericlist', $filters, 'filter_type', array('size'=>'1','class'=>'inputbox'), 'value', 'text', $filter_type);
+		$lists['filter'] = HTMLHelper::_('select.genericlist', $filters, 'filter_type', array('size'=>'1','class'=>'form-select'), 'value', 'text', $filter_type);
 		$lists['search'] = $search;
 		$lists['month'] = $search_month;
 

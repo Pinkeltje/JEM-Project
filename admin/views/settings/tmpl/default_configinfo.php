@@ -1,6 +1,5 @@
 <?php
 /**
- * @version    4.2.2
  * @package    JEM
  * @copyright  (C) 2013-2024 joomlaeventmanager.net
  * @copyright  (C) 2005-2009 Christoph Lukes
@@ -44,7 +43,7 @@ use Joomla\CMS\Language\Text;
 					<th><u><?php echo Text::_('COM_JEM_NAME'); ?></u></th>
                     <th><u><?php echo Text::_('COM_JEM_MAIN_CONFIG_VS'); ?></u></th>
                     <th><u><?php echo Text::_('COM_JEM_DATE'); ?></u></th>
-                    <th><u><?php echo Text::_('COM_JEM_STATE'); ?></u></th>
+                    <th><u><?php echo Text::_('JSTATUS'); ?></u></th>
                 </tr>
                 <?php
 				foreach ($known_extensions as $name => $label) {

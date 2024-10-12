@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<extension type="package" version="2.5" method="upgrade">
+<extension type="package" version="4.4" method="upgrade">
 	<name>pkg_jem</name>
 	<packagename>jem</packagename>
 	<creationDate>April 2024</creationDate>
@@ -9,7 +9,7 @@
 	<authorEmail>info@joomlaeventmanager.net</authorEmail>
 	<authorUrl>https://www.joomlaeventmanager.net</authorUrl>
 
-	<version>4.2.2</version>
+	<version>4.3.0.rc7</version>
 	<description>PKG_JEM_INSTALLATION_DESCRIPTION</description>
 	<url>https://www.joomlaeventmanager.net/</url>
 	<packager>JEM Community</packager>
@@ -34,11 +34,11 @@
 		<file type="plugin" id="jem" group="finder">plg_finder_jem.zip</file>
 		<file type="plugin" id="comments" group="jem">plg_jem_comments.zip</file>
 		<file type="plugin" id="mailer" group="jem">plg_jem_mailer.zip</file>
-		<file type="plugin" id="jemquickicon" group="quickicon">plg_quickicon_jem.zip</file>
+		<file type="plugin" id="jem" group="quickicon">plg_quickicon_jem.zip</file>
 	</files>
 
 	<languages folder="language">
-		<language tag="en-GB">en-GB/en-GB.pkg_jem.sys.ini</language>
+		<language tag="en-GB">en-GB/pkg_jem.sys.ini</language>
 	</languages>
 
 	<updateservers>

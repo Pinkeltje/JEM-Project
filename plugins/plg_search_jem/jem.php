@@ -1,6 +1,5 @@
 <?php
 /**
- * @version    4.2.2
  * @package    JEM
  * @subpackage JEM Search Plugin
  * @copyright  (C) 2013-2024 joomlaeventmanager.net
@@ -30,7 +29,7 @@ class plgSearchJEM extends CMSPlugin
     public function __construct(&$subject, $config)
     {
         parent::__construct($subject, $config);
-        Plugin::loadLanguage('plg_search_jem', JPATH_ADMINISTRATOR);
+        CMSPlugin::loadLanguage('plg_search_jem', JPATH_ADMINISTRATOR);
     }
 
 
